@@ -1,0 +1,63 @@
+/* MAIN MENU */
+var ww = document.body.clientWidth;
+
+var adjustMenu = function() {
+    'use strict';
+    if (ww < 900) {
+        jQuery('body').find('.toggleMenu').css('display', 'inline-block');
+        if (!jQuery('body').find('.toggleMenu').hasClass('active')) {
+            jQuery('body').find('#mainmenu').hide();
+        } else {
+            jQuery('body').find('#mainmenu').show();
+        }
+        jQuery('body').find('#mainmenu li').unbind('mouseenter mouseleave');
+        jQuery('body').find('#mainmenu li a.parent').unbind('click').bind('click', function(e) {
+            e.preventDefault();
+            jQuery(this).parent('li').toggleClass('hover');
+        });
+    }
+    else if (ww >= 900) {
+        jQuery('body').find('.toggleMenu').css('display', 'none');
+        jQuery('body').find('#mainmenu').show();
+        jQuery('body').find('#mainmenu li').removeClass('hover');
+        jQuery('body').find('#mainmenu li a').unbind('click');
+        jQuery('body').find('#mainmenu li').unbind('mouseenter mouseleave').bind('mouseenter mouseleave', function() {
+            jQuery(this).toggleClass('hover');
+            jQuery(this).toggleClass('activelink');
+            jQuery(this).find('ul').toggleClass('animatedfast');
+            jQuery(this).find('ul').toggleClass('fadeInUp');
+        });
+        jQuery('body').find('#mainmenu ul li').unbind('mouseenter mouseleave').bind('mouseenter mouseleave', function() {
+            jQuery(this).toggleClass('hover');
+            jQuery(this).find('ul li').toggleClass('animatedfast');
+            jQuery(this).find('ul li').toggleClass('fadeInLeft');
+        });
+    }
+};
+
+jQuery(document).ready(function() {
+    'use strict';
+    jQuery('body').find('#mainmenu li a').each(function() {
+        if (jQuery(this).next().length > 0) {
+            jQuery(this).addClass('parent');
+        }
+    });
+
+    jQuery('body').find('.toggleMenu').click(function(e) {
+        e.preventDefault();
+        jQuery(this).toggleClass('active');
+        jQuery('body').find('#mainmenu').toggle();
+    });
+    adjustMenu();
+});
+
+jQuery(window).load(function () {
+    'use strict';
+    jQuery('body').find('#mainmenu').css('pointer-events', 'auto');
+});
+
+jQuery(window).bind('resize orientationchange', function() {
+    'use strict';
+    ww = document.body.clientWidth;
+    adjustMenu();
+});

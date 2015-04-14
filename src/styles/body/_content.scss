@@ -1,0 +1,116 @@
+.page-container {
+    @include outer-container;
+    margin: 20px auto;
+    margin-bottom: 10px;
+    @include media(max-width $tablet) {
+        margin-top: 0;
+    }
+    .slider-section {
+        @include clearfix;
+        margin-bottom: 40px;
+        @include media(max-width $tablet) {
+            margin-bottom: 0;
+        }
+    }
+    .left-section {
+        @include span-columns(9);
+        @include media(max-width $tablet) {
+            @include span-columns(12);
+        }
+        .drop-shadow {
+            @include media(max-width $tablet) {
+                &:before, &:after {
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+    .right-section {
+        @include span-columns(3);
+        @include media(max-width $tablet) {
+            display: none;
+        }
+    }
+    .header-img {
+        display: block;
+        border-radius: 4px;
+        @include media(max-width $tablet) {
+            border-radius: 0;
+        }
+    }
+    .services-section {
+        @include outer-container;
+        @include clearfix;
+        padding: 0 20px;
+        @include media(min-width $tablet) {
+            padding: 0;
+        }
+        .service-container {
+            @include span-columns(4);
+            border-top: 1px solid $ECGrey;
+            border-bottom: 1px solid $ECGrey;
+            @include media(max-width $tablet) {
+                @include span-columns(6);
+                border-top: 0;
+            }
+            @include media(max-width $phone) {
+                @include span-columns(12);
+                border-top: 0;
+            }
+            img {
+                float: left;
+                padding: 8px 10px 17px 0px;
+                @include media(max-width $tablet) {
+                    width: 100px;
+                }
+            }
+            .service-description {
+                h3 {
+                    font-weight: 700;
+                    color: $ECRed;
+                    line-height: 26px;
+                    margin-top: 10px;
+                    font-size: 1.4em;
+                    padding-top: 14px;
+                    &:hover {
+                        color: tint($ECRed, 50%);
+                    }
+                    &.green {
+                        color: $ECGreen;
+                    }
+                }
+                p {
+                    color: $ECBlue;
+                    padding: 5px 20px 0 112px;
+                    font-size: 0.9em;
+                    @include media(max-width $tablet) {
+                        padding: 0;
+                        font-size: 1em;
+                    }
+                    @include media(max-width $phone) {
+                        font-size: 1em;
+                    }
+                    &.green {
+                        color: $ECGreen;
+                    }
+                }
+                @include media(max-width $tablet) {
+                    padding: 0;
+                }
+            }
+            @include media(min-width $tablet) {
+                &:nth-child(3) {
+                    margin-right: 0;
+                }
+                &:nth-child(n+4):nth-child(-n+6) {
+                    border-top: none;
+                }
+            }
+            @include media(max-width $tablet) {
+                &:nth-child(even) {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}

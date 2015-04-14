@@ -1,0 +1,208 @@
+#mainmenu-container {
+    @include outer-container;
+    width: 100%;
+    position: relative;
+    nav {
+        #mainmenu {
+            @include linear-gradient(0deg, $ECBlue, $ECBlue 70%, $ECLBlue 70%, $ECLBlue 100%);
+            font-size: 1em;
+            list-style: none;
+            *zoom: 1;
+            padding: 0;
+            margin: 0 auto;
+            line-height: 30px;
+            z-index: 9999;
+            @include border-right-radius(5px);
+            @include border-left-radius(5px);
+            pointer-events: none;
+            &:before {
+                content: " ";
+                display: table;
+            }
+            &:after {
+                content: " ";
+                display: table;
+                clear: both;
+            }
+            ul {
+                list-style: none;
+                width: 19em;
+                padding: 0;
+                margin: 0;
+                z-index: 99999;
+            }
+            .first {
+                &:hover {
+                    @include border-left-radius(5px);
+                    @include media(max-width 900px) {
+                        border-radius: 0;
+                    }
+                }
+            }
+            > li {
+                float: left;
+                > a {
+                    display: block;
+                    &:nth-child(1) {
+                        @include border-left-radius(5px);
+                    }
+                }
+                &.hover > ul {
+                    left: 0;
+                }
+            }
+            li {
+                position: relative;
+                a {
+                    color: $white;
+                    @include linear-gradient(0deg, $ECBlue, $ECBlue 70%, $ECLBlue 70%, $ECLBlue 100%);
+                    padding: 5px 30px;
+                    display: inline-block;
+                    position: relative;
+                    border-right: 1px solid $white;
+                    @include media(max-width 900px) {
+                        border-right: 0;
+                    }
+                    &:hover {
+                        text-decoration: none;
+                        @include linear-gradient(0deg, $ECRed, $ECRed 70%, $ECLRed 70%, $ECLRed 100%);
+                        border-radius: 0;
+                    }
+                    &.active {
+                        &:hover {
+                            @include border-left-radius(5px);
+                        }
+                    }
+                    > span {
+                        position: relative;
+                        font-family: $openSans;
+                        font-weight: 600;
+                    }
+                }
+                .active {
+                    @include linear-gradient(0deg, $ECRed, $ECRed 70%, $ECLRed 70%, $ECLRed 100%);
+                }
+            }
+            ul {
+                position: absolute;
+                left: -9999px;
+                li {
+                    display: block;
+                    position: relative;
+                    z-index: 100;
+                    a {
+                        background: $ECRed;
+                        display: block;
+                        position: relative;
+                        z-index: 10;
+                        &:hover {
+                            background: $ECBlue;
+                        }
+                    }
+                    .active {
+                        background: $ECBlue;
+                        &:hover {
+                            border-radius: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.toggleMenu {
+    display: none;
+    list-style: none;
+    padding: 15px 30px;
+    margin: 0;
+    left: 0;
+    top: 0;
+    @include fill-parent;
+    z-index: 9;
+    font-size: 1em;
+    text-decoration: none;
+    @include linear-gradient(0deg, $ECBlue, $ECBlue 70%, $ECLBlue 70%, $ECLBlue 100%);
+    color: $white!important;
+}
+
+@include media(max-width $nav-break) {
+    .toggleMenu {
+        background-image: url(../images/downArrow.png);
+        background-repeat: no-repeat;
+        background-position: 95% 50%;
+    }
+    #mainmenu {
+        float: none;
+        line-height: 40px!important;
+        padding-right: 0!important;
+        ul {
+            display: block;
+            width: 100%!important;
+            li {
+                &:first-child {
+                    margin-top: 0;
+                }
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                a {
+                    padding: 5px 30px;
+                    background-color: #474e98;
+                }
+                li {
+                    a {
+                        background-color: #616161;
+                    }
+                }
+            }
+        }
+        li {
+            li {
+                .parent {
+                    background-image: url(../images/downArrow.png);
+                    background-repeat: no-repeat;
+                    background-position: 95% 50%;
+                    &:hover {
+                        background-image: url(../images/downArrow.png);
+                        background-repeat: no-repeat;
+                        background-position: 95% 50%;
+                    }
+                }
+            }
+                background-image: none!important;
+            .active {
+                background-image: none!important;
+            }
+            a {
+                background-image: none!important;
+                &:hover {
+                    background-image: none!important;
+                }
+            }
+        }
+        > li {
+            float: none!important;
+            > a {
+                display: block!important;
+            }
+            > .parent {
+                background-image: url(../images/downArrow.png)!important;
+                background-repeat: no-repeat;
+                background-position: 95% 50%;
+            }
+        }
+    }
+    #mainmenu-container nav #mainmenu > li.hover > ul {
+        left: 0;
+        position: static;
+    }
+    #mainmenu-container nav #mainmenu > li > a:nth-child(1) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    #mainmenu-container nav #mainmenu li a.active:hover {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+}

@@ -1,0 +1,96 @@
+.contact-section {
+    display: none;
+    .horizontal-contact-form {
+        textarea, input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"], select[multiple=multiple] {
+            display: inline;
+            border-radius: 0;
+            height: 40px;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+        input[type="checkbox"], input[type="radio"] {
+            margin: 0px 4px;
+        }
+        button, input[type="submit"] {
+            background-color: #ED1C24;
+            margin: 18px 0px 5px 0px;
+            font-weight: 700;
+            font-size: 1.3em;
+            padding: 0.5em 1em;
+        }
+        .placeholder {
+            color: $ECGrey;
+            font-size: 1em;
+        }
+        .checkbox-labels {
+            display: inline;
+            font-size: 0.8em;
+            font-weight: 400;
+        }
+    }
+    @include media(max-width $tablet) {
+        @include fill-parent;
+        background-color: $ECBlue;
+        display: block;
+        .home-contact-small {
+            #clickme {
+                padding: 15px 30px;
+                color: $white;
+                cursor: pointer;
+                background-image: url(../images/downArrow.png);
+                background-repeat: no-repeat;
+                background-position: 95% 50%;
+                font-size: 1.6em;
+                font-weight: 700;
+            }
+            #small-form-container {
+                display: none;
+                overflow: hidden;
+                padding-bottom: 15px;
+                .horizontal-contact-form {
+                    color: $white;
+                    padding: 0 30px;
+                    .left-side {
+                        @include span-columns(8);
+                    }
+                    .right-side {
+                        @include span-columns(4);
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+    @include media(max-width $phone) {
+        @include fill-parent;
+        background-color: $ECBlue;
+        display: block;
+        .home-contact-small {
+            #clickme {
+                padding: 15px 30px;
+                color: $white;
+                cursor: pointer;
+                background-image: url(../images/downArrow.png);
+                background-repeat: no-repeat;
+                background-position: 95% 50%;
+                font-size: 1.6em;
+                font-weight: 700;
+            }
+            #small-form-container {
+                display: none;
+                overflow: hidden;
+                .horizontal-contact-form {
+                    color: $white;
+                    padding: 0 30px;
+                    .left-side {
+                        @include span-columns(12);
+
+                    }
+                    .right-side {
+                        @include span-columns(12);
+                    }
+                }
+            }
+        }
+    }
+}

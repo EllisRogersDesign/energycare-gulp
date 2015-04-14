@@ -1,0 +1,35 @@
+.drop-shadow {
+    position:relative;
+    &:before, &:after {
+        content: "";
+        position: absolute;
+        z-index: -2;
+    }
+}
+.lifted {
+    &:before, &:after {
+        bottom:15px;
+        left:10px;
+        width:50%;
+        height:20%;
+        max-width:300px;
+        max-height:100px;
+        -webkit-box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+        -moz-box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+        box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+        -webkit-transform:rotate(-3deg);
+        -moz-transform:rotate(-3deg);
+        -ms-transform:rotate(-3deg);
+        -o-transform:rotate(-3deg);
+        transform:rotate(-3deg);
+    }
+    &:after {
+        right:10px;
+        left:auto;
+        -webkit-transform:rotate(3deg);
+        -moz-transform:rotate(3deg);
+        -ms-transform:rotate(3deg);
+        -o-transform:rotate(3deg);
+        transform:rotate(3deg);
+    }
+}

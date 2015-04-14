@@ -1,0 +1,38 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,700,600,800,400);
+
+$openSans: 'Open Sans', sans-serif;
+
+$ECBlue: #003572;
+$ECLBlue: #4D739D;
+$ECRed: #ED1C24;
+$ECLRed: #F26166;
+$ECGreen: #28712A;
+$white: #FFFFFF;
+$ECGrey: #D1D2D4;
+$ECLGrey: #939597;
+
+$nav-break: 900px;
+$tablet: 1040px;
+$phone: 625px;
+
+@import "bourbon";
+@import "neat";
+@import "reset";
+@import "base/base";
+@import "animate";
+@import "effects";
+@import "font-awesome/font-awesome";
+@import "bxslider";
+@import "colorbox";
+
+@import "header/header";
+@import "header/navigation";
+@import "body/content";
+@import "body/sidebar";
+@import "body/home-contact";
+@import "body/left-section";
+@import "footer/footer";
+
+body {
+    border-top: 5px solid $ECBlue;
+}

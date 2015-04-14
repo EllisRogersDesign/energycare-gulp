@@ -1,0 +1,106 @@
+#header {
+    @include outer-container;
+    position: relative;
+    height: auto;
+    padding: 0 20px;
+    @include media(min-width $tablet) {
+        padding: 0;
+    }
+
+    .logo-container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        display: inline-block;
+        @include media(max-width 640px) {
+            text-align: center;
+        }
+        .logo {
+            height: auto;
+            width: 308px;
+            vertical-align: bottom;
+            margin: 15px 0 0 0;
+            float: left;
+            max-width: 100%;
+            @include media(max-width 770px) {
+                width: 250px;
+            }
+            @include media(max-width 640px) {
+                text-align: center;
+                float: none;
+            }
+            @include media(max-width 400px) {
+                width: 200px;
+            }
+        }
+        .cta {
+            margin: 50px 0 0 15px;
+            float: right;
+            position: relative;
+            @include media(max-width 770px) {
+                margin: 35px 0 0 15px;
+            }
+            .social-links {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                position: relative;
+                display: inline-block;
+                text-align: right;
+                a {
+                    img {
+                        border-radius: 50%;
+                    }
+                }
+            }
+            .apply-text {
+                text-transform: uppercase;
+                text-align: right;
+                margin-bottom: 0;
+                font-weight: 700;
+                color: $ECBlue;
+                font-size: 1.6em;
+                line-height: 30px;
+            }
+            .phone {
+                font: 3em $openSans;
+                color: $ECRed;
+                font-weight: 800;
+                line-height: 40px;
+                text-align: right;
+                a {
+                    color: $ECRed;
+                }
+            }
+            .desc {
+                text-align: right;
+                color: $ECBlue;
+                line-height: 30px;
+                margin: 0;
+                strong {
+                    font-weight: 600;
+                }
+            }
+            @include media(max-width 640px) {
+                float: none;
+                margin: 10px 0;
+                .social-links {
+                    text-align: center;
+                }
+                .phone {
+                    text-align: center;
+                    font-size: 2.4em;
+                    font-weight: 800;
+                }
+                .desc {
+                    text-align: center;
+
+                }
+                .apply-text {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
